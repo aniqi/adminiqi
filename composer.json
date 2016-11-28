@@ -1,17 +1,20 @@
 {
-    "name": "Aniqi/Adminiqi",
+    "name": "aniqi/adminiqi",
+    "description": "Administrator panel for laravel 5.3",
     "type": "library",
-    "description": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrey Niqi",
+            "email": "petrovvich@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
     "keywords": [
         "Aniqi",
         "Adminiqi"
     ],
     "homepage": "https://github.com/aniqi/adminiqi",
-    "license": "MIT",
-    "authors": {
-            "name": "Andrey Niqi",
-            "email": "petrovvich@gmail.com",
-    },
     "require": {
         "illuminate/support": "~5.1",
         "php" : "~5.6|~7.0"
