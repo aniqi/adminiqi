@@ -21,6 +21,11 @@
         "psr-4": {
             "Adminiqi\\": "src/"
         }
+    },
+        "autoload-dev": {
+        "psr-4": {
+            "Adminiqi\\": "src/"
+        }
     }
 
 }
