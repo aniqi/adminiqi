@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Aniqi\\Adminiqi\\": "packages/aniqi/adminiqi/src"
+            "Adminiqi\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Aniqi\\Adminiqi\\": "tests"
+            "Adminiqi\\": "tests"
         }
     },
     "scripts": {

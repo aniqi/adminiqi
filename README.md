@@ -1,4 +1,4 @@
-# Adminiqi
+# Adminiqi - web-site administarator panel
 
 
 ## Install
