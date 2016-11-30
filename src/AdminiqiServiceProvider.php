@@ -15,8 +15,7 @@ class AdminiqiServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        return "test";
-        //require __DIR__.'/routes.php';
+        require __DIR__.'/routes.php';
     
     }
 
