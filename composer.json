@@ -9,25 +9,13 @@
             "name": "Andrey Niqi",
             "email": "petrovvich@gmail.com"
         }
-    ],    
+    ], 
     "homepage": "https://github.com/aniqi/adminiqi",
-    "require": {
-        "illuminate/support": "~5.1",
-        "php" : "~5.6|~7.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit" : "~4.0||~5.0",
-        "squizlabs/php_codesniffer": "^2.3"
-    },
+    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
-            "Adminiqi\\": "src/"
+            "Aniqi\\Adminiqi\\": "src/"
         }
     },
-        "autoload-dev": {
-        "psr-4": {
-            "Adminiqi\\": "src/"
-        }
-    }
-
+    "require": {},
 }
