@@ -1,19 +1,29 @@
 # Adminiqi - web-site administarator panel
-version test
-```0.1
+# version no work!!! (test mode)
+0.1
+
+
+## Add in config/app.php 
 ```
+	'providers' => [
+	...
+		/*
+       		* Package Service Providers...
+    	*/
+
+        Aniqi\Adminiqi\AdminiqiServiceProvider::class,
+        Aniqi\Adminiqi\CheckForMaintenanceMode::class,
+
+    ...
+```
+
 ## Install
 
 Via Composer
 
 ``` bash
-"Aniqi/Adminiqi":"0.1.*"
+"aniqi/adminiqi": "master-dev"
 ```
 
-## Usage
 
-``` php
-php artisan vendor:publish
-php artisan migrate
-```
 
