@@ -5,6 +5,7 @@ namespace Aniqi\Adminiqi;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Response;
 
 
 class AdminiqiServiceProvider extends ServiceProvider
@@ -19,51 +20,25 @@ class AdminiqiServiceProvider extends ServiceProvider
     public function boot()
     {
 
-    
-        
-        $ip = Request::getClientIp();
-           echo $ip;
-
-//            App::down(function()
-// {
-//     $ip = Request::getClientIp();
-//     $allowed = array('192.168.1.7', '192.168.1.8', '127.0.0.1');
-
-//     if(!in_array($ip, $allowed))
-//     {
-//         return Response::view('maintenance', array(), 503);
-//     }
-// });
-
-        //exit;
-            
-            //$ip = Request::getClientIp();
-           // echo $ip;
-            //$allowed = array('192.168.1.7', '192.168.1.8', '127.0.0.1');
-
-            //if(!in_array($ip, $allowed))
-            //{
-               // return Response::view('maintenance', array(), 503);
-            //}
-
-
-
-
-
-
-    //Artisan::call('down');
-    //exit;
-    //$maintenance = new Aniqi\Adminiqi\CheckForMaintenanceMode;
-
-
-
-
-
-    $this->loadViewsFrom(__DIR__.'/views', 'courier');
-    //connect config file
+    $this->loadViewsFrom(__DIR__.'/views', 'courier');   
     $this->mergeConfigFrom( __DIR__.'/../config.php', 'config' );
+    //$config = config('config');
+     
+     $ip = Request::getClientIp();
+     $allowed = config('config.allowed_ips');
+        
+        if(config('config.maintenance_mode') && !in_array($ip, $allowed))    {
+            
+            $ip = Request::getClientIp();
+            echo view('courier::maintenancemode');
+            exit;
+        }
 
-    $config = config('config');
+
+
+   
+    //connect config file
+    
         
     //dd ($config);
 

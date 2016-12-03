@@ -80,11 +80,11 @@ return
 		],
 
 	],
-
+	'maintenance_mode' => true,
 	// uses for maintenance mode
-	'allowed_ips' => ['127.0.0.1', '::1'],
+	'allowed_ips' => ['192.168.1.7', '192.168.1.8', '127.0.0.2', ],
 
 	// uses for blocked client ips
-	'blocked_ips' => ['127.0.0.1', '::1'],
+	'blocked_ips' => ['127.0.0.1', '192.168.1.7', '192.168.1.8', ],
 
 ];
