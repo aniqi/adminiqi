@@ -3,9 +3,9 @@
 namespace Aniqi\Adminiqi;
 
 use Illuminate\Support\ServiceProvider;
-
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Request;
-use Illuminate\Contracts\Foundation\Application;
+
 
 class AdminiqiServiceProvider extends ServiceProvider
 {
@@ -24,16 +24,16 @@ class AdminiqiServiceProvider extends ServiceProvider
         $ip = Request::getClientIp();
            echo $ip;
 
+//            App::down(function()
+// {
+//     $ip = Request::getClientIp();
+//     $allowed = array('192.168.1.7', '192.168.1.8', '127.0.0.1');
 
-
-    // $ip = Request::getClientIp();
-    // $allowed = array('192.168.1.7', '192.168.1.8', '127.0.0.1');
-
-    // if(!in_array($ip, $allowed))
-    // {
-    //     return Response::view('maintenance', array(), 503);
-    // }
-
+//     if(!in_array($ip, $allowed))
+//     {
+//         return Response::view('maintenance', array(), 503);
+//     }
+// });
 
         //exit;
             

@@ -1,35 +1,50 @@
 <?php 
-
-namespace App\Http\Middleware;
+namespace Aniqi\Adminiqi;
 
 use Closure;
 use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Http\Request;
-use Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode as MaintenanceMode;
+use Illuminate\Foundation\Http\Exceptions\MaintenanceModeException;
 
-class CheckForMaintenanceMode {
-
+class CheckForMaintenanceMode
+{
+    /**
+     * The application implementation.
+     *
+     * @var \Illuminate\Contracts\Foundation\Application
+     */
     protected $app;
 
+    /**
+     * Create a new middleware instance.
+     *
+     * @param  \Illuminate\Contracts\Foundation\Application  $app
+     * @return void
+     */
     public function __construct(Application $app)
     {
         $this->app = $app;
     }
 
-    public function handle(Request $request, Closure $next)
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     *
+     * @throws \Symfony\Component\HttpKernel\Exception\HttpException
+     */
+    public function handle($request, Closure $next)
     {
-        if ($this->app->isDownForMaintenance() && 
-            !in_array($request->getClientIp(), ['8.8.8.8', '8.8.4.4']))
-        {
-            $maintenanceMode = new MaintenanceMode($this->app);
-            return $maintenanceMode->handle($request, $next);
+        if ($this->app->isDownForMaintenance()) {
+            $data = json_decode(file_get_contents($this->app->storagePath().'/framework/down'), true);
+
+            throw new MaintenanceModeException($data['time'], $data['retry'], $data['message']);
         }
 
         return $next($request);
     }
-
 }
-
  /*
  <?php 
 
