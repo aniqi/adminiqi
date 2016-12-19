@@ -19,17 +19,20 @@
 
 ## Install
 
-Via Composer
+in file composer.json 
 
 ``` bash
 "aniqi/adminiqi": "master-dev"
 ```
 
+## Composer command
 
+``` bash
+composer update
+```
 
 ## PHP Artisan command
 
 ``` bash
-php artisan update
 php artisan vendor:publish
 ```
