@@ -1,6 +1,6 @@
 # Adminiqi - web-site administarator panel
-# version no work!!! (test mode)
-0.1
+# version 0.0.1
+
 
 
 ## Add in config/app.php 
@@ -12,7 +12,6 @@
     	*/
 
         Aniqi\Adminiqi\AdminiqiServiceProvider::class,
-        Aniqi\Adminiqi\CheckForMaintenanceMode::class,
 
     ...
 ```
