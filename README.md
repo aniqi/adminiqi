@@ -1,5 +1,6 @@
 # Adminiqi - web-site administarator panel
 # version 0.0.1
+# package for Laravel 5.3
 
 
 
