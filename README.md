@@ -28,5 +28,6 @@ aniqi/adminiqi/css/app.css
 
 ## PHP Artisan command
 
-``` php artisan vendor:publish
+``` bash
+php artisan vendor:publish
 ```
