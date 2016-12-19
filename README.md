@@ -24,6 +24,10 @@ Via Composer
 ``` bash
 "aniqi/adminiqi": "master-dev"
 ```
+aniqi/adminiqi/css/app.css
 
 
+## PHP Artisan command
 
+```php artisan vendor:publish
+```

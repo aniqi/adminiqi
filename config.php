@@ -7,19 +7,78 @@ return
 	'url_path' => 'admin',
 
 	// language panel "en" or "ru" 
-	'language' => 'ru',
+	'language' => 'en',
 
 	//menu panel
-	'menu'=> [	
+	'pages'=> [	
 
 		'en' => 
 
 		[
+
+
 			'Сonfiguration'=> 
 			[
-				'Panel Settings'=> '#urlpage',
-				'Maintenance Mode'=> '#urlpage',
-				'Administration'=> '#urlpage',
+
+				'panelsetting'=>
+				[ 
+					'name'=>'Panel Settings',
+					//'contained' =>
+
+				],
+
+
+				'maintenance'=>
+				[ 
+					'name'=>'Maintenance Mode',
+				],
+
+
+				'administration'=>
+				[ 
+					'name'=>'Administration',
+				],
+
+				'sitesetting'=>
+				[ 
+					'name'=>'Site Settings',
+
+				],
+
+
+			],
+
+			'Demo pages'=>
+			[
+				'adminpage/generation'=>
+				[
+					
+					'name' => 'Adminpage Generation',
+					'content' => 
+					[
+						'table' => 
+						[
+							'name' => 'table_name',
+							'type' => 'db',
+							//'type' => 'data',
+							'table_content' => 
+							[
+								'db_tablename' => 
+								[
+
+									'db_rowname' => 'edit',
+									'db_rowname' => 'view',
+								],
+							],
+						],
+						'button' => 
+						[
+							'name' => 'button_name',
+							'type' => 'ajax',
+							//'type' => 'url',
+						],
+					],
+				],
 			],
 
 		],
@@ -30,9 +89,23 @@ return
 		[
 			'Общие настройки'=> 
 			[
-				'Настройки Панели'=> '#urlpage',
-				'Режим обслуживание'=> '#urlpage',
-				'Администрирование'=> '#urlpage',
+
+				'panelsetting'=>
+				[ 
+					'name' => 'Настройки Панели',
+
+				],
+
+				'maintenance'=>
+				[ 
+					'name' => 'Режим обслуживание',
+				],
+
+				'administration'=>
+				[ 
+					'name' => 'Администрирование',
+				],
+
 			],
 		],
 		
@@ -64,8 +137,9 @@ return
 	[
 		'admin' => 
 		[
+
 			'privilege' => 'administrator',
-			'pass'=> '',
+			'pass'=> '$2y$10$aDt9Dgd2CDdEPq3MCu2dVO7azAhmuDJWRgDOsByIUyFGKrnjMIXrO',
 
 		],
 		'username' => 
@@ -80,11 +154,16 @@ return
 		],
 
 	],
-	'maintenance_mode' => true,
-	// uses for maintenance mode
-	'allowed_ips' => ['192.168.1.7', '192.168.1.8', '127.0.0.2', ],
+	'maintenance_mode' =>'1',
 
-	// uses for blocked client ips
+	// Secure Login by ip (allow_ips)
+	'login_allow_ips' => 1,
+	// uses for maintenance mode
+	'allowed_ips' => ['192.168.1.7','192.168.1.8','127.0.0.1'],
+
+	// uses for blocked site client ips
 	'blocked_ips' => ['127.0.0.1', '192.168.1.7', '192.168.1.8', ],
+
+	'key' =>     '+2y}10H4f7Gzb18YSl!oJauF1nHD4eDDCqmRnx.0=ZqBnLMWNUaysTsG%9FmBy'   ,
 
 ];
