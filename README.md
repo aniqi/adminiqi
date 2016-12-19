@@ -30,6 +30,6 @@ Via Composer
 ## PHP Artisan command
 
 ``` bash
-php artisan ugrade
+php artisan upgrade
 php artisan vendor:publish
 ```
