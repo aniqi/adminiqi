@@ -159,7 +159,7 @@ return
 	// Secure Login by ip (allow_ips)
 	'login_allow_ips' => 1,
 	// uses for maintenance mode
-	'allowed_ips' => ['127.0.0.1','192.168.1.1','188.122.241.113','176.59.106.13','128.71.254.210'],
+	'allowed_ips' => ['127.0.0.1','192.168.1.1','188.122.241.113'],
 
 	// uses for access to the adminiqi //or ['192.168.1.7','192.168.1.8','127.0.0.1'],
 	'allowed_adminiqi_ips' => 'all',
