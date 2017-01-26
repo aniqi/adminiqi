@@ -30,7 +30,6 @@
                   <label>Список IP-адресов</label>
                 </div>
             </p>
-            <button>Сохранить изменения</button>  
             <button ajax="allowed_ips">Сохранить изменения</button>
 
 @endsection

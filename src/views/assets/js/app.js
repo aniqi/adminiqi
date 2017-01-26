@@ -11,7 +11,7 @@ $(document).ready(function(){
 		
 				
 		$('#menu-standart').html(menu);
-			if ($('*').is('#menu'))
+			if ($('body').is('#menu'))
 			{
 				var positionRight = $('#menu').width() - menu.eq(-1).position().left;
 				if (positionRight<0)
@@ -84,9 +84,9 @@ $(document).ready(function(){
 
 
 
-	    $('ul.menu-prepend:last-child').click(function() {
-        alert("Yes");
-    });
+	// $('ul.menu-prepend:last-child').click(function() {
+    //    alert("Yes");
+    //});
 
 
 
@@ -120,14 +120,55 @@ $(document).ready(function(){
 
 
 	$("button").click(function() {
-		dataSave($(this))
-	});
+		if ($(this).attr('ajax'))
+		{
+			//foreach	
+			var name = $(this).attr('ajax');
+			
+			var content = $('[name='+name+']').text().split(';');
+			content = content.map(Function.prototype.call, String.prototype.trim)
 
-	$(".toggle-switch").click(function() {
-		dataSave($(this))
-	});
+			var url      = window.location.href;
+			var pathname = window.location.pathname.split("/");
+			
+			var request = location.host+'/'+pathname[1]+'/ajax';
+			var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
-	
+			var post_data = {};
+			post_data[name]= content;
+
+			//alert(filename); 
+			  // запускаем ajax-запрос, устанавливаем обработчики событий.
+			// Возвращаемые методом $.get объект сохраним в переменной jqxhr для дальнейшего использования
+			$.ajax({
+			    url: 'ajax',
+			    type: 'POST',
+			    data: 
+			    {
+			    	data: post_data,
+			    	_token: CSRF_TOKEN,
+			    },
+			    dataType: 'JSON',
+			    success: function (data) {
+
+			        $('[name='+name+']').attr('tooltip',data.msg)
+			        showTooltip($('[name='+name+']'),1);
+			        console.log(data);
+
+			    },
+			    fail: function (data) {
+			        $('[name='+name+']').attr('tooltip',data.msg)
+			        console.log(data.msg);
+
+			    }
+			});
+
+			
+			//alert(request);
+			
+			//$(this).attr()
+		}
+	});
 
 	/*
 	$(document).ready(function() {
@@ -146,78 +187,9 @@ $(document).ready(function(){
 
 
 
-	//$('[tooltiprr]').attr("tooltiprr");
-	//$('[tooltiprg]').attr("tooltiprg");
-	//$('[tooltiplr]').attr("tooltiplr");
-	//$('[tooltiplg]').attr("tooltiplg");
-
-
-
-	function dataSave(element){
-
-		var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-
-		if (element.attr('ajax'))
-		{
-			//foreach	
-			var name = element.attr('ajax');
-			element = $('[name='+name+']');
-
-			var content = element.val().trim().split("\n");
-			alert(element.text());			
-			//content = content.map(Function.prototype.call, String.prototype.trim)
-
-			var url      = window.location.href;
-			var pathname = window.location.pathname.split("/");
-			
-			var request = location.host+'/'+pathname[1]+'/ajax';
-
-			var post_data = {};
-			post_data[name]= content;
-		}
-		else if (element.attr('name'))
-		{
-
-			var name = element.attr('name');
-			var post_data = {};
-			post_data[name] =  0;
-			if ( element.prop( "checked" ) )
-			{
-				post_data[name] =  1;
-			}
-
-		}
-			//alert(filename); 
-			  // запускаем ajax-запрос, устанавливаем обработчики событий.
-			// Возвращаемые методом $.get объект сохраним в переменной jqxhr для дальнейшего использования
-			
-			$.ajax({
-			    url: 'ajax',
-			    type: 'POST',
-			    data: 
-			    {
-			    	data: post_data,
-			    	_token: CSRF_TOKEN,
-			    },
-			    dataType: 'JSON',
-			    success: function (data) {
-
-			        element.attr('tooltip',data.msg)
-			        showTooltip(element,1);
-			        console.log(data);
-
-			    },
-			    fail: function (data) {
-			        element.attr('tooltip',data.msg)
-			        showTooltip(element,2);
-			        console.log(data.msg);
-
-			    }
-			});
-		}
 	
 	function showTooltip(element, type=0) {
-		
+	
 		
 		
 		
@@ -242,23 +214,11 @@ $(document).ready(function(){
 
 
 
-
-
-		//var t = $('textarea').scrollTop($('textarea').get(0).scrollHeight);
-		//var scrollHeight = $('textarea').scrollTop() + $('textarea').height();
-		//textarea resize
-		if ($('*').is('textarea'))
-		{
-			var scrollHeight = $('textarea')[0].scrollHeight
-			$('textarea').css({'height': scrollHeight });
-		}
-
-		//var scrollHeight = elm.scrollTop() + elm.height();
-
-		//elm.scrollTop(0);
+	//$('textarea').on('load',function(){
 		//$(this).style.height = "1px";
 		//$(this).style.height = (25+o.scrollHeight)+"px";
 
+	//)};
 
 
 
@@ -268,6 +228,6 @@ $(document).ready(function(){
 	  o.style.height = (25+o.scrollHeight)+"px";
 	}
 
-	
+	//textarea resize
 	
 

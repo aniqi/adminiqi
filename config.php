@@ -159,7 +159,7 @@ return
 	// Secure Login by ip (allow_ips)
 	'login_allow_ips' => 1,
 	// uses for maintenance mode
-	'allowed_ips' => ['192.168.1.7','192.168.1.8','127.0.0.1'],
+	'allowed_ips' => ['192.168.1.7','192.168.1.8','127.0.0.1','123.0.0.3'],
 
 	// uses for blocked site client ips
 	'blocked_ips' => ['127.0.0.1', '192.168.1.7', '192.168.1.8', ],

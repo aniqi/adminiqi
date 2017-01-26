@@ -17,24 +17,15 @@
   <script type="text/javascript" src="{{asset('/aniqi/adminiqi/js/app.js')}}"></script>
  
   <style type="text/css">
-   form {
-      width: 300px;
-      margin: 30px auto;
-   }
+
    button{
-    margin-top: 10px;
-    float: right;
-    padding: 10px 20px; 
     background-color: #364050;
-    display: none;
    }
    #logotip img{
     width: 140px;
-    margin: 160px 0 50px;
+    margin-top: 100px;
    }
-   #logotip{
-    text-align: center;
-   }
+
   </style>
 
 </head>
@@ -47,29 +38,31 @@
 
 
 
+<div id="input-block">
 
 
         <form method="POST">
           <p id="logotip"><img  src="{{asset('/aniqi/adminiqi/img/adminiqi.svg')}}" alt="logo adminiqi"></p>
         	   <p>
                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <div class="input-text">      
+                <div class="input-text center">      
                   <input type="text"  name="login" tooltip="Для входа в панель введите имя и пароль" required>
                   <span class="highlight"></span>
                   <span class="bar"></span>
                   <label>Имя пользователя</label>
                 </div>
                   
-                <div class="input-text">      
+                <div class="input-text center">      
                   <input type="password"  name="pass" required>
                   <span class="highlight"></span>
                   <span class="bar"></span>
                   <label>Пароль</label>
+
                 </div>
-                <button type="hidden" formaction="{{config('config.url_path')}}">Войти</button>
+                <button type="submit" formaction="{{config('config.url_path')}}">Войти</button>
             </p>
         </form>
-
+</div>
 
 </body>
 </html>

@@ -1,7 +1,6 @@
 # Adminiqi - web-site administarator panel
-# version 0.0.1
-# package for Laravel 5.3
-
+# version no work!!! (test mode)
+0.1
 
 
 ## Add in config/app.php 
@@ -13,26 +12,22 @@
     	*/
 
         Aniqi\Adminiqi\AdminiqiServiceProvider::class,
+        Aniqi\Adminiqi\CheckForMaintenanceMode::class,
 
     ...
 ```
 
 ## Install
 
-in file composer.json 
+Via Composer
 
 ``` bash
 "aniqi/adminiqi": "master-dev"
 ```
+aniqi/adminiqi/css/app.css
 
-## Composer command
-
-``` bash
-composer update
-```
 
 ## PHP Artisan command
 
-``` bash
-php artisan vendor:publish
+```php artisan vendor:publish
 ```
