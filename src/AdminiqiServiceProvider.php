@@ -36,20 +36,34 @@ class AdminiqiServiceProvider extends ServiceProvider
                    //dd($current); 
         //$flip1 =   array_flip($data);
         //dd($flip1);
+    
 
                     //echo $file;
      $ip = Request::getClientIp();
      $allowed = config('config.allowed_ips');
+     
+    //dd(substr(Request::path(),0));  
+    
+    $path = explode("/", substr(Request::path(),0));
+    if(config('config.maintenance_mode')
+        && $path[0]!=config('config.url_path')
+        && !in_array($ip, $allowed))   
+    {
         
-    if(config('config.maintenance_mode') && !in_array($ip, $allowed))    {
-        
-        $ip = Request::getClientIp();
+        //$ip = Request::getClientIp();
+
         //echo view('courier::maintenancemode');
         //view('errors.500',  'My custom message',  503);
         //response()->view('errors.404', [], 404);
+        
         abort(503);
         exit;
     }
+    require __DIR__.'/routes.php';
+
+    /*!!!*/
+    
+
     
 
     //echo '<h1>'.Asset::js().'</h1>';
@@ -58,7 +72,7 @@ class AdminiqiServiceProvider extends ServiceProvider
 
     //connect routes
 
-    require __DIR__.'/routes.php';
+   // require __DIR__.'/routes.php';
 
 
     

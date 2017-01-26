@@ -159,11 +159,14 @@ return
 	// Secure Login by ip (allow_ips)
 	'login_allow_ips' => 1,
 	// uses for maintenance mode
-	'allowed_ips' => ['192.168.1.7','192.168.1.8','127.0.0.1','123.0.0.3'],
+	'allowed_ips' => ['127.0.0.1','192.168.1.1','188.122.241.113','176.59.106.13','128.71.254.210'],
 
+	// uses for access to the adminiqi //or ['192.168.1.7','192.168.1.8','127.0.0.1'],
+	'allowed_adminiqi_ips' => 'all',
+	
 	// uses for blocked site client ips
 	'blocked_ips' => ['127.0.0.1', '192.168.1.7', '192.168.1.8', ],
 
-	'key' =>     '+2y}10H4f7Gzb18YSl!oJauF1nHD4eDDCqmRnx.0=ZqBnLMWNUaysTsG%9FmBy'   ,
+	'key' =>     '+2y}10H4f7Gzb1hf78YSl!oJauF1nHD4eDCqmRnx.0=ZqBnLM76WNUaysTsG%9FmBy'   ,
 
 ];
